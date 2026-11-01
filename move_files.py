@@ -3,7 +3,7 @@ import shutil
 
 src_download = Path.home() / "Downloads"
 dst_files = Path.home() / "Documents"
-
+dst_pictures = Path.home() / "Pictures"
 
 # print(dst_files)            # what path is it actually looking at?
 # print(dst_files.exists())   # does it exist?
@@ -13,5 +13,5 @@ dst_files = Path.home() / "Documents"
 for suffix in (".pdf", ".docx", ".txt"):
     for f in list(src_download.iterdir()):
         if f.suffix == suffix:
-            print("it worked!")
+            shutil.move(f, dst_files)
 
